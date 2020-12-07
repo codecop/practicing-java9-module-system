@@ -37,7 +37,7 @@ Set JAVA_HOME system variable properly or use direct path where it is used. We u
 
 4) Your favourite text editor
 
-Sublime, Atom, Notepad++, or any that you are comfortable with it. Some examples include Maven projects, but you don't need to install Maven thanks to the Maven wrapper.
+Sublime, Atom, Notepad++, or any that you are comfortable with it.
 
 5) Watch the repository so you will be notified with repository updates ;)
 
