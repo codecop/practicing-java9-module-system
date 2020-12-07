@@ -20,27 +20,16 @@ Class<Printer> clazz = Printer.class; <2>
 
 ====
 
-1) Reflective access with exports (public method)
+Reflective access with exports (private method)
 
-[source,bash]
-----
-cd module-reflection-exports
-----
-
-include::__STANDARD_PRINTER_COMPILE.adoc[]
-
-include::__STANDARD_PRINTER_RUN.adoc[]
-
-////
-Hello world!
-////
-
-2) Reflective access with exports (private method)
+In this practice, you are going to play with ``exports``, ``requires`` and ``opens`` keywords to understand them easily.
 
 [source,bash]
 ----
 cd module-reflection-exports-private
 ----
+
+Compile ``printer-impl`` and ``printer-client`` modules, and log that how Java module system prevents access when `opens` is missed.
 
 include::__STANDARD_PRINTER_COMPILE.adoc[]
 
@@ -57,38 +46,8 @@ impl does not "opens com.printer.impl" to module com.printer.client
 
 ////
 
-3) Reflective access with opens (private method)
-
-[source,bash]
-----
-cd module-reflection-opens-private
-----
-
-include::__STANDARD_PRINTER_COMPILE.adoc[]
-
-include::__STANDARD_PRINTER_RUN.adoc[]
+Update `printer-impl/src/module-info.java` and `printer-client/src/module-info.java` for the reflection operation on private data to work.
 
 ////
 Hello world
-////
-
-3) 2) Non-Reflective access with opens (public method)
-
-[source,bash]
-----
-cd module-reflection-opens-public
-----
-
-include::__STANDARD_PRINTER_COMPILE.adoc[]
-
-include::__STANDARD_PRINTER_RUN.adoc[]
-
-////
-We get the error at compile time
-
-printer-client\src\com\printer\client\PrinterClient.java:3: error: package com.printer.impl is not visible
-import com.printer.impl.Printer;
-                  ^
-  (package com.printer.impl is declared in module com.printer.impl, which does not export it)
-1 error
 ////
